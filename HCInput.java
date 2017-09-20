@@ -5,6 +5,12 @@ public class HCInput implements KeyListener{
 	
 	Boolean[] keys = new Boolean[26];
 	
+	public HCInput() {
+		for(int i = 0; i < keys.length; i++) {
+			keys[i] = false;
+		}
+	}
+	
 	public boolean getKey(char key) {
 		return keys[key-'a'];
 	}

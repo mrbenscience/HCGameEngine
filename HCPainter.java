@@ -9,14 +9,22 @@ public class HCPainter extends JPanel{
 	
 	BufferedImage bi;
 	Graphics2D g2;
+	Color bg;
+	int width, height;
 	
 	public HCPainter(int width, int height) {
+		this.width = width;
+		this.height = height;
 		bi = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 		g2 = bi.createGraphics();
 	}
 	
 	public void setColor(Color c) {
 		g2.setColor(c);
+	}
+	
+	public void background(Color c) {
+		bg = c;
 	}
 	
 	public void rect(int x, int y, int width, int height, boolean fill) {
@@ -34,6 +42,10 @@ public class HCPainter extends JPanel{
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		g.drawImage(bi, 0, 0, null);
+		if(bg != null) {
+			g2.setColor(bg);
+			g2.fillRect(0, 0, width, height);
+		}
 	}
 	
 	public void image(String name, int x, int y, HCImageHandler handler) {

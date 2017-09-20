@@ -41,6 +41,10 @@ public class HCGame {
 		return input.getKey(key);
 	}
 	
+	public void setBackground(Color c) {
+		painter.background(c);
+	}
+	
 	public void drawRect(int x, int y, int width, int height, boolean fill) {
 		painter.rect(x, y, width, height, fill);
 	}
