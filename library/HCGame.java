@@ -61,6 +61,10 @@ public class HCGame {
 		painter.image(name, x, y, handler);
 	}
 	
+	public void drawRotated(String name, double angle, int x, int y) {
+		painter.rotateImage(name, angle, x, y, handler);
+	}
+	
 	public void update() {
 		logic.update();
 		frame.repaint();

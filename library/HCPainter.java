@@ -1,6 +1,7 @@
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 
 import javax.swing.JPanel;
@@ -50,5 +51,13 @@ public class HCPainter extends JPanel{
 	
 	public void image(String name, int x, int y, HCImageHandler handler) {
 		g2.drawImage(handler.get(name), x, y, null);
+	}
+	
+	public void rotateImage(String name, double degree, int x, int y, HCImageHandler handler) {
+		BufferedImage image = handler.get(name);
+		AffineTransform at = new AffineTransform();
+		at.translate(x, y);
+		at.rotate(Math.toRadians(degree), image.getWidth()/2, image.getHeight()/2);
+		g2.drawImage(image, at, null);
 	}
 }
