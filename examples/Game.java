@@ -31,7 +31,7 @@ public class Game extends HCLogic{
 			y++;
 		}
 		game.setDrawColor(Color.cyan);
-		game.drawRect(x, y, 100, 100, true);
+		game.drawRotated("gradient", x+y, x, y);
 	}
 
 }
